@@ -1,0 +1,8 @@
+import { z } from "zod";
+import { currentUser } from "@/app/lib/auth";
+import { badRequest } from "@/app/lib/api";
+import { mutate, query } from "@/app/lib/store";
+const schema = z.object({ productId: z.string().min(1), quantity: z.coerce.number().int().min(0).max(10) });
+const cartFor = (store: any, userId: string) => { const items = store.carts[userId] ?? []; return items.map((item: any) => ({ ...item, product: store.products.find((product: any) => product.id === item.productId) })).filter((item: any) => item.product); };
+export async function GET() { const user = await currentUser(); if (!user) return badRequest("Please log in.", 401); return Response.json({ items: await query((store) => cartFor(store, user.id)) }); }
+export async function POST(request: Request) { const user = await currentUser(); if (!user) return badRequest("Please log in to add to cart.", 401); const parsed = schema.safeParse(await request.json()); if (!parsed.success) return badRequest("Invalid cart item."); const items = await mutate((store) => { if (!store.products.some((product) => product.id === parsed.data.productId)) return null; const cart = store.carts[user.id] ?? []; const existing = cart.find((item) => item.productId === parsed.data.productId); if (parsed.data.quantity === 0) store.carts[user.id] = cart.filter((item) => item.productId !== parsed.data.productId); else if (existing) existing.quantity = parsed.data.quantity; else cart.push({ productId: parsed.data.productId, quantity: parsed.data.quantity }); store.carts[user.id] = cart; return cartFor(store, user.id); }); return items ? Response.json({ items }) : badRequest("Product not found.", 404); }

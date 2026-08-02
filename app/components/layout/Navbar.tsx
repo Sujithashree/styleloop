@@ -1,24 +1,26 @@
+import Link from "next/link";
+
 export default function Navbar() {
   return (
-    <nav className="fixed top-0 z-50 w-full border-b border-white/10 bg-white/5 backdrop-blur-xl">
+    <nav className="flex flex-wrap justify-between items-center gap-4 px-6 py-5 md:px-10">
 
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-8">
+      <Link href="/" className="text-2xl font-bold">StyleLoop</Link>
 
-        <h1 className="font-[family:var(--font-bodoni)] bg-gradient-to-r from-pink-400 via-violet-300 to-cyan-300 bg-clip-text text-4xl font-bold tracking-wide text-transparent">
-       Aurevia
-       </h1>
+      <div className="flex flex-wrap items-center gap-4 text-sm md:gap-6 md:text-base">
 
-        <div className="flex gap-4">
+        <Link href="/explore">Explore</Link>
 
-          <button className="rounded-lg px-5 py-2 text-white hover:bg-white/10">
-            Login
-          </button>
+        <Link href="/collections">Collections</Link>
 
-          <button className="rounded-xl bg-white px-6 py-2 font-semibold text-black transition hover:scale-105">
-            Join
-          </button>
+        <Link href="/marketplace">Marketplace</Link>
 
-        </div>
+        <Link href="/cart">Cart</Link>
+
+        <Link href="/feed">Feed</Link>
+
+        <Link href="/profile">Profile</Link>
+
+        <Link href="/login" className="rounded-lg border border-white/40 px-3 py-1.5 hover:bg-white hover:text-black">Login</Link>
 
       </div>
 

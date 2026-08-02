@@ -1,0 +1,73 @@
+{
+  "users": [
+    {
+      "id": "maya",
+      "name": "Maya Chen",
+      "email": "maya@styleloop.local",
+      "passwordHash": "",
+      "bio": "Minimal looks, maximal confidence.",
+      "createdAt": "2026-01-10T00:00:00.000Z"
+    },
+    {
+      "id": "arjun",
+      "name": "Arjun Rao",
+      "email": "arjun@styleloop.local",
+      "passwordHash": "",
+      "bio": "Tailoring and everyday essentials.",
+      "createdAt": "2026-01-12T00:00:00.000Z"
+    }
+  ],
+  "posts": [
+    {
+      "id": "post-maya",
+      "authorId": "maya",
+      "caption": "Weekend coffee look: warm neutrals and a soft oversized layer.",
+      "tags": [
+        "neutral",
+        "weekend",
+        "women"
+      ],
+      "createdAt": "2026-07-20T09:00:00.000Z",
+      "likes": [],
+      "comments": []
+    },
+    {
+      "id": "post-arjun",
+      "authorId": "arjun",
+      "caption": "Modern formal essentials that work from meetings to evenings.",
+      "tags": [
+        "formal",
+        "men",
+        "minimal"
+      ],
+      "createdAt": "2026-07-19T09:00:00.000Z",
+      "likes": [],
+      "comments": []
+    }
+  ],
+  "products": [
+    {
+      "id": "product-1",
+      "sellerId": "maya",
+      "title": "Linen blend blazer",
+      "description": "A relaxed, breathable blazer for everyday layering.",
+      "price": 2899,
+      "category": "Outerwear",
+      "createdAt": "2026-07-18T00:00:00.000Z"
+    },
+    {
+      "id": "product-2",
+      "sellerId": "arjun",
+      "title": "Classic pleated trousers",
+      "description": "A versatile high-waist tailored trouser.",
+      "price": 2199,
+      "category": "Bottoms",
+      "createdAt": "2026-07-18T00:00:00.000Z"
+    }
+  ],
+  "carts": {},
+  "orders": [],
+  "sessions": {},
+  "follows": {},
+  "savedPosts": {}
+}

@@ -1,34 +1,28 @@
+import Link from "next/link";
+
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center justify-center px-6">
+    <section className="min-h-screen flex items-center justify-center">
 
-      <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
+      <div className="text-center">
 
-      <div className="relative z-10 text-center">
-        <h1 className="font-[family:var(--font-bodoni)] text-7xl font-bold tracking-wide md:text-9xl">
-       Aurevia
-       </h1>
+        <h1 className="text-7xl font-bold bg-gradient-to-r from-[#9a4e3c] via-[#d77a50] to-[#6f9570] bg-clip-text text-transparent">
+  StyleLoop
+</h1>
 
-    
+<h2 className="mt-6 text-4xl text-[#6b594a]">
+  Discover • Share • Inspire
+</h2>
 
-        <h2 className="mt-4 bg-gradient-to-r from-pink-400 via-violet-300 to-cyan-300 bg-clip-text text-4xl font-bold text-transparent md:text-6xl">
-          Fashion Meets AI
-        </h2>
+        <div className="mt-10 flex justify-center gap-6">
 
-        <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-zinc-200 md:text-xl">
-          Share outfits, discover trends, connect with creators,
-          and receive AI-powered style recommendations.
-        </p>
-
-        <div className="mt-12 flex justify-center gap-6">
-
-          <button className="rounded-xl bg-white px-8 py-4 font-semibold text-black transition hover:scale-105">
+          <Link href="/register" className="bg-[#9b4d70] !text-white rounded-xl px-6 py-3 shadow-lg shadow-pink-200">
             Get Started
-          </button>
+          </Link>
 
-          <button className="rounded-xl border border-white/40 bg-white/10 px-8 py-4 backdrop-blur-lg transition hover:bg-white/20">
+          <Link href="/explore" className="border border-[#8b6b51] rounded-xl px-6 py-3 text-[#563f32]">
             Explore
-          </button>
+          </Link>
 
         </div>
 

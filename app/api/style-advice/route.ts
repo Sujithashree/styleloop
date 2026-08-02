@@ -1,0 +1,4 @@
+import { z } from "zod";
+import { badRequest } from "@/app/lib/api";
+const schema = z.object({ occasion: z.string().trim().min(2).max(80), style: z.string().trim().min(2).max(80), weather: z.string().trim().min(2).max(80) });
+export async function POST(request: Request) { const parsed = schema.safeParse(await request.json()); if (!parsed.success) return badRequest("Please complete the style quiz."); const { occasion, style, weather } = parsed.data; const layers = /rain|cold|winter/i.test(weather) ? "a light layer and closed shoes" : "breathable fabrics and one polished accessory"; return Response.json({ advice: `For ${occasion}, build a ${style} look with ${layers}. Start with a neutral base, add one statement colour, and choose pieces you can re-wear together.`, items: ["A versatile base layer", "One structured outer layer", "A comfortable finishing piece"] }); }

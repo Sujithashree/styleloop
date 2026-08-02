@@ -1,14 +1,9 @@
 import "./globals.css";
-import { Bodoni_Moda } from "next/font/google";
-
-const bodoni = Bodoni_Moda({
-  subsets: ["latin"],
-  variable: "--font-bodoni",
-});
+import Navbar from "./components/layout/Navbar";
 
 export const metadata = {
-  title: "Aurevia",
-  description: "Where Fashion Meets AI",
+  title: "StyleLoop",
+  description: "AI-Powered Fashion Social Platform",
 };
 
 export default function RootLayout({
@@ -18,7 +13,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={bodoni.variable}>
+      <body>
+        <Navbar />
         {children}
       </body>
     </html>

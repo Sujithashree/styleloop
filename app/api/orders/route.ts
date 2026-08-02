@@ -1,0 +1,5 @@
+import { currentUser } from "@/app/lib/auth";
+import { badRequest } from "@/app/lib/api";
+import { id, mutate, query } from "@/app/lib/store";
+export async function GET() { const user = await currentUser(); if (!user) return badRequest("Please log in.", 401); return Response.json({ orders: await query((store) => store.orders.filter((order) => order.userId === user.id)) }); }
+export async function POST() { const user = await currentUser(); if (!user) return badRequest("Please log in to checkout.", 401); const order = await mutate((store) => { const items = store.carts[user.id] ?? []; if (!items.length) return null; const total = items.reduce((sum, item) => sum + (store.products.find((product) => product.id === item.productId)?.price ?? 0) * item.quantity, 0); const value = { id: id("order"), userId: user.id, items, total, status: "paid" as const, createdAt: new Date().toISOString() }; store.orders.push(value); store.carts[user.id] = []; return value; }); return order ? Response.json({ order }, { status: 201 }) : badRequest("Your cart is empty."); }

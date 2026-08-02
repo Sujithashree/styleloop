@@ -9,33 +9,93 @@ body {
 }
 
 body {
-  color: white;
+  color: #3f342b;
   overflow-x: hidden;
-  background: linear-gradient(
-      135deg,
-      #0f172a 0%,
-      #312e81 20%,
-      #6d28d9 40%,
-      #ec4899 65%,
-      #f97316 85%,
-      #facc15 100%
-  );
-  background-size: 400% 400%;
-  animation: gradientMove 18s ease infinite;
+  background:
+    radial-gradient(circle at 8% 8%, rgba(232, 157, 119, 0.43) 0, transparent 27%),
+    radial-gradient(circle at 92% 12%, rgba(146, 181, 150, 0.42) 0, transparent 26%),
+    radial-gradient(circle at 72% 88%, rgba(238, 197, 117, 0.35) 0, transparent 32%),
+    linear-gradient(135deg, #eadbc4 0%, #f1e5d3 48%, #d9e3d1 100%);
+  background-attachment: fixed;
 }
 
 * {
   box-sizing: border-box;
 }
 
-@keyframes gradientMove {
-  0% {
-    background-position: left;
-  }
-  50% {
-    background-position: right;
-  }
-  100% {
-    background-position: left;
-  }
+/* A soft, consistent palette for the existing Tailwind utility classes. */
+.bg-black {
+  background-color: transparent !important;
+}
+
+.bg-zinc-900 {
+  background: linear-gradient(145deg, rgba(247, 209, 181, 0.92), rgba(205, 222, 195, 0.92)) !important;
+  border: 1px solid rgba(133, 92, 65, 0.22);
+  box-shadow: 0 14px 34px rgba(101, 76, 53, 0.13);
+}
+
+.bg-zinc-900:hover,
+.hover\:bg-zinc-800:hover {
+  background: linear-gradient(145deg, #f4c5a9, #c5d9b9) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 20px 38px rgba(103, 57, 119, 0.2);
+}
+
+.text-white {
+  color: #3f342b !important;
+}
+
+.text-gray-400,
+.text-white\/80,
+.text-white\/90 {
+  color: #6f6257 !important;
+}
+
+.bg-pink-500 {
+  background: linear-gradient(100deg, #c9694e 0%, #d97e55 50%, #e99b67 100%) !important;
+  color: white !important;
+  box-shadow: 0 9px 20px rgba(173, 63, 151, 0.3);
+}
+
+.bg-pink-500:hover {
+  background: linear-gradient(100deg, #b95640 0%, #c86a49 50%, #d98556 100%) !important;
+  transform: translateY(-1px);
+}
+
+.text-pink-200,
+.text-pink-300,
+.text-pink-400 {
+  color: #a9503d !important;
+}
+
+.border,
+.border-white,
+.border-white\/40 {
+  border-color: rgba(112, 83, 61, 0.35) !important;
+}
+
+input {
+  border: 1px solid rgba(132, 92, 67, 0.38);
+  background: #f6e6d2;
+  color: #3f342b;
+}
+
+input:focus {
+  outline: 2px solid #ba7654;
+  outline-offset: 2px;
+}
+
+nav {
+  margin: 14px auto 0;
+  width: min(94%, 1160px);
+  border: 1px solid rgba(115, 91, 67, 0.28);
+  border-radius: 18px;
+  background: linear-gradient(100deg, rgba(245, 210, 181, 0.82), rgba(203, 221, 192, 0.8));
+  box-shadow: 0 10px 30px rgba(100, 76, 53, 0.12);
+  backdrop-filter: blur(12px);
+}
+
+::selection {
+  background: #d98a61;
+  color: #352b25;
 }
