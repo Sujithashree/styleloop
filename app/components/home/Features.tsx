@@ -21,7 +21,7 @@ export default function Features() {
     <section className="bg-black py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-center text-white">
-          Why Choose Aurevia?
+          Why Choose StyleLoop?
         </h2>
 
         <p className="text-center text-gray-400 mt-4">
