@@ -6,18 +6,18 @@ const looks = [
     name: "Dresses for every day",
     image:
       "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=900&q=85",
-    alt: "Woman wearing a flowing everyday dress",
+    alt: "Woman wearing a refined blue coat and dress",
   },
   {
     name: "The occasion edit",
     image:
       "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85",
-    alt: "Woman wearing a polished fashion-forward outfit",
+    alt: "Woman wearing a bold contemporary outfit",
   },
   {
     name: "New-season essentials",
     image:
-      "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=900&q=85",
+      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=85",
     alt: "A curated selection of women's clothing",
   },
 ];
@@ -36,7 +36,7 @@ export default function Women() {
         to inspire your next outfit.
       </p>
       <div className="mt-9 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {looks.map((look) => (
+        {looks.map((look, index) => (
           <article
             key={look.name}
             className="overflow-hidden rounded-3xl border border-[#70533d]/20 bg-[#fffaf4]/70 shadow-lg shadow-[#604b38]/10"
@@ -46,6 +46,7 @@ export default function Women() {
                 src={look.image}
                 alt={look.alt}
                 fill
+                loading={index === 0 ? "eager" : "lazy"}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover"
               />

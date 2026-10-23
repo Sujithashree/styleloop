@@ -7,8 +7,8 @@ const collections = [
     detail: "Everyday layers, made sharper",
     href: "/men",
     image:
-      "https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=1000&q=85",
-    alt: "Man wearing a layered contemporary outfit",
+      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=1000&q=85",
+    alt: "Man wearing a tailored dark suit",
   },
   {
     title: "Women's edit",
@@ -16,7 +16,7 @@ const collections = [
     href: "/women",
     image:
       "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1000&q=85",
-    alt: "Woman wearing a stylish modern dress",
+    alt: "Woman wearing a refined blue coat and dress",
   },
 ];
 
@@ -55,13 +55,11 @@ export default function Hero() {
         </div>
 
         <div className="grid grid-cols-2 gap-4 sm:gap-6">
-          {collections.map((collection, index) => (
+          {collections.map((collection) => (
             <Link
               key={collection.title}
               href={collection.href}
-              className={`group relative isolate overflow-hidden rounded-3xl shadow-xl shadow-[#604b38]/15 ${
-                index === 0 ? "mt-10 aspect-[4/5]" : "mb-10 aspect-[4/5]"
-              }`}
+              className="group relative isolate aspect-[4/5] overflow-hidden rounded-2xl shadow-xl shadow-[#604b38]/15"
             >
               <Image
                 src={collection.image}

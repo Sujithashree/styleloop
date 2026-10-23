@@ -5,20 +5,20 @@ const looks = [
   {
     name: "Modern classics",
     image:
-      "https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=900&q=85",
-    alt: "Man wearing a modern layered outfit",
+      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&q=85",
+    alt: "Man wearing a tailored dark suit",
   },
   {
     name: "Streetwear",
     image:
-      "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=900&q=85",
-    alt: "Contemporary street-style outfit",
+      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=900&q=85",
+    alt: "Man wearing a relaxed street-style outfit",
   },
   {
     name: "Casual layers",
     image:
-      "https://images.unsplash.com/photo-1516257984-b1b4d707412e?auto=format&fit=crop&w=900&q=85",
-    alt: "Casual menswear look",
+      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85",
+    alt: "Casual clothing essentials",
   },
 ];
 
@@ -36,7 +36,7 @@ export default function Men() {
         effortless.
       </p>
       <div className="mt-9 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {looks.map((look) => (
+        {looks.map((look, index) => (
           <article
             key={look.name}
             className="overflow-hidden rounded-3xl border border-[#70533d]/20 bg-[#fffaf4]/70 shadow-lg shadow-[#604b38]/10"
@@ -46,6 +46,7 @@ export default function Men() {
                 src={look.image}
                 alt={look.alt}
                 fill
+                loading={index === 0 ? "eager" : "lazy"}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover"
               />
